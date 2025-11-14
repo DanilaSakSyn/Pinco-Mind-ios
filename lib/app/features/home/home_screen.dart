@@ -198,7 +198,7 @@ class _TaskTile extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              task.description.isEmpty ? 'Без описания' : task.description,
+              task.description.isEmpty ? 'No description' : task.description,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: base.copyWith(
@@ -255,13 +255,13 @@ class _TaskTile extends StatelessWidget {
     final DateTime target = DateTime(date.year, date.month, date.day);
     final int delta = target.difference(today).inDays;
     if (delta == 0) {
-      return 'Сегодня';
+      return 'Today';
     }
     if (delta > 0) {
-      return delta == 1 ? 'Завтра' : 'Через $delta д';
+      return delta == 1 ? 'Tomorrow' : 'In $delta d';
     }
     final int past = delta.abs();
-    return past == 1 ? 'Вчера' : '$past д назад';
+    return past == 1 ? 'Yesterday' : '$past d ago';
   }
 }
 
@@ -304,7 +304,7 @@ class _EmptyState extends StatelessWidget {
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  'Нет задач с ближайшим дедлайном',
+                  'No tasks with upcoming deadlines',
                   textAlign: TextAlign.center,
                   style: base.copyWith(
                     fontSize: 18,
@@ -314,7 +314,7 @@ class _EmptyState extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  'Добавьте задачу, чтобы контролировать сроки и успевать вовремя.',
+                  'Add a task to stay on schedule and finish on time.',
                   textAlign: TextAlign.center,
                   style: base.copyWith(
                     fontSize: 15,
@@ -325,7 +325,7 @@ class _EmptyState extends StatelessWidget {
                 const SizedBox(height: 20),
                 CupertinoButton.filled(
                   onPressed: onCreate,
-                  child: const Text('Быстро добавить'),
+                  child: const Text('Quick Add'),
                 ),
               ],
             ),

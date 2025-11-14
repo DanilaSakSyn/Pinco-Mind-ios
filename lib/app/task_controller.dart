@@ -43,9 +43,8 @@ class TaskController extends ChangeNotifier {
   }
 
   Future<void> deleteTask(String taskId) async {
-    final List<Task> next = _tasks
-        .where((Task task) => task.id != taskId)
-        .toList();
+    final List<Task> next =
+        _tasks.where((Task task) => task.id != taskId).toList();
     if (next.length == _tasks.length) {
       return;
     }
@@ -75,39 +74,39 @@ class TaskController extends ChangeNotifier {
   List<Task> _seedTasks() {
     final DateTime now = DateTime.now();
     return <Task>[
-      Task(
-        id: 'task_${now.microsecondsSinceEpoch - 3}',
-        title: 'Review sprint scope',
-        description:
-            'Align backlog items with the quarterly roadmap before kickoff.',
-        createdAt: now.subtract(const Duration(days: 2)),
-        updatedAt: now.subtract(const Duration(days: 1, hours: 4)),
-        lastModifiedAt: now.subtract(const Duration(days: 1, hours: 4)),
-        tagIds: const <String>[],
-        dueDate: now.add(const Duration(days: 5)),
-      ),
-      Task(
-        id: 'task_${now.microsecondsSinceEpoch - 2}',
-        title: 'Design task board',
-        description:
-            'Sketch updated columns and hand-off to design system team.',
-        createdAt: now.subtract(const Duration(days: 1, hours: 6)),
-        updatedAt: now.subtract(const Duration(hours: 6)),
-        lastModifiedAt: now.subtract(const Duration(hours: 6)),
-        tagIds: const <String>[],
-        dueDate: now.add(const Duration(days: 2)),
-      ),
-      Task(
-        id: 'task_${now.microsecondsSinceEpoch - 1}',
-        title: 'Prepare release notes',
-        description:
-            'Summarize recent fixes and new beta features for stakeholders.',
-        createdAt: now.subtract(const Duration(days: 3)),
-        updatedAt: now.subtract(const Duration(days: 1)),
-        lastModifiedAt: now.subtract(const Duration(days: 1)),
-        tagIds: const <String>[],
-        dueDate: now.subtract(const Duration(days: 1)),
-      ),
+      // Task(
+      //   id: 'task_${now.microsecondsSinceEpoch - 3}',
+      //   title: 'Review sprint scope',
+      //   description:
+      //       'Align backlog items with the quarterly roadmap before kickoff.',
+      //   createdAt: now.subtract(const Duration(days: 2)),
+      //   updatedAt: now.subtract(const Duration(days: 1, hours: 4)),
+      //   lastModifiedAt: now.subtract(const Duration(days: 1, hours: 4)),
+      //   tagIds: const <String>[],
+      //   dueDate: now.add(const Duration(days: 5)),
+      // ),
+      // Task(
+      //   id: 'task_${now.microsecondsSinceEpoch - 2}',
+      //   title: 'Design task board',
+      //   description:
+      //       'Sketch updated columns and hand-off to design system team.',
+      //   createdAt: now.subtract(const Duration(days: 1, hours: 6)),
+      //   updatedAt: now.subtract(const Duration(hours: 6)),
+      //   lastModifiedAt: now.subtract(const Duration(hours: 6)),
+      //   tagIds: const <String>[],
+      //   dueDate: now.add(const Duration(days: 2)),
+      // ),
+      // Task(
+      //   id: 'task_${now.microsecondsSinceEpoch - 1}',
+      //   title: 'Prepare release notes',
+      //   description:
+      //       'Summarize recent fixes and new beta features for stakeholders.',
+      //   createdAt: now.subtract(const Duration(days: 3)),
+      //   updatedAt: now.subtract(const Duration(days: 1)),
+      //   lastModifiedAt: now.subtract(const Duration(days: 1)),
+      //   tagIds: const <String>[],
+      //   dueDate: now.subtract(const Duration(days: 1)),
+      // ),
     ];
   }
 }
@@ -116,8 +115,8 @@ class TaskScope extends InheritedNotifier<TaskController> {
   const TaskScope({required super.notifier, required super.child, super.key});
 
   static TaskController of(BuildContext context) {
-    final TaskScope? scope = context
-        .dependOnInheritedWidgetOfExactType<TaskScope>();
+    final TaskScope? scope =
+        context.dependOnInheritedWidgetOfExactType<TaskScope>();
     assert(scope != null, 'TaskScope not found in context');
     return scope!.notifier!;
   }

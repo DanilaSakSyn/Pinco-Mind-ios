@@ -3,6 +3,7 @@ import 'package:flutter/material.dart' show ThemeMode;
 import 'package:pinco_mind_app/app/tag_controller.dart';
 import 'package:pinco_mind_app/app/theme_controller.dart';
 import 'package:pinco_mind_app/app/models/tag.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -24,12 +25,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   static const String _appTitle = 'Pinco Mind';
   static const String _appVersion = '1.0.0';
   static const String _appDescription = 'Focus on mindful productivity.';
-  static const String _developerName = 'Pinco Mind Team';
-  static const String _developerContact = 'support@pincomind.app';
+  static const String _developerName = 'SHADY BETH MARTINEZ';
+  static const String _developerContact = 'shadybeth11909@icloud.com';
   static const String _privacyPolicyTitle = 'Privacy Policy';
   static const String _privacyPolicySummary =
       'Read more about how we handle your data at pincomind.app/privacy.';
-  static const String _privacyPolicyLink = 'https://pincomind.app/privacy';
+  static const String _privacyPolicyLink =
+      'https://pincomind.com/privacy-policy.html';
 
   late final TextEditingController _tagNameController;
   late Color _selectedColor;
@@ -78,6 +80,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
     });
   }
 
+  Future<void> _launchUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $urlString');
+    }
+  }
+
   Future<void> _showEditTagDialog(Tag tag) async {
     final TextEditingController controller = TextEditingController(
       text: tag.name,
@@ -106,14 +115,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   const SizedBox(height: 16),
                   Text(
                     'Color',
-                    style: CupertinoTheme.of(context).textTheme.textStyle
-                        .copyWith(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: CupertinoTheme.of(
-                            context,
-                          ).primaryContrastingColor,
-                        ),
+                    style:
+                        CupertinoTheme.of(context).textTheme.textStyle.copyWith(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: CupertinoTheme.of(
+                                context,
+                              ).primaryContrastingColor,
+                            ),
                   ),
                   const SizedBox(height: 10),
                   _buildColorPicker(
@@ -529,7 +538,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           horizontal: 12,
                           vertical: 6,
                         ),
-                        onPressed: _showPrivacyPolicy,
+                        onPressed: () {
+                          _launchUrl(_privacyPolicyLink);
+                        },
                         child: Text(_privacyPolicyTitle),
                       ),
                     ],
