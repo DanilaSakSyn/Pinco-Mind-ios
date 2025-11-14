@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"ios":{"default":{"projectId":"pinco-mind","appId":"1:177564631008:ios:c22e9d9c7437a2b6943585","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"pinco-mind","configurations":{"ios":"1:177564631008:ios:c22e9d9c7437a2b6943585"}}}}}}
