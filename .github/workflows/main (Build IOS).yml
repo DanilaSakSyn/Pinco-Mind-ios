@@ -1,7 +1,16 @@
 name: Build Flutter iOS
 
-
-on: workflow_dispatch
+on: 
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+# on: workflow_dispatch
 
 
 
