@@ -10,9 +10,9 @@ import 'core/screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) async {
-    final status = await AppTrackingTransparency.requestTrackingAuthorization();
-  });
+  // WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) async {
+  //   final status = await AppTrackingTransparency.requestTrackingAuthorization();
+  // });
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   SdkInitializer.prefs = await SharedPreferences.getInstance();
   await SdkInitializer.loadRuntimeStorageToDevice();

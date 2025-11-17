@@ -43,8 +43,6 @@
 	<string>Allows microphone access.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allows photo library access.</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Your data will be used to personalize ads.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
